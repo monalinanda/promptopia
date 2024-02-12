@@ -123,6 +123,7 @@ const Nav = () => {
                   key={provider.name}
                   onClick={() => {
                     signIn(provider.id);
+                    console.log(provider,"pro")
                   }}
                   className="black_btn"
                 >

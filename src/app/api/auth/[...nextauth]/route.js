@@ -7,7 +7,7 @@ import { connectToDB } from "@/utils/database";
 const handler = NextAuth({
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
+      clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
@@ -16,7 +16,6 @@ const handler = NextAuth({
       // store the user id from MongoDB to session
       const sessionUser = await User.findOne({ email: session.user.email });
       session.user.id = sessionUser._id.toString();
-
       return session;
     },
     async signIn({ profile }) {
